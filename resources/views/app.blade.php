@@ -17,7 +17,7 @@
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>
 
-        <style>
+        <!-- <style>
         ul, #myUL {
         list-style-type: none;
         }
@@ -49,7 +49,7 @@
         .active {
         display: block;
         }
-        </style>
+        </style> -->
 
     </head>
     <body class="font-sans antialiased">

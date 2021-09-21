@@ -10,7 +10,7 @@ class ShowDashboard extends Controller
 {
     public function __invoke(ApiService $api)
     {
-        $teritories = $api->getTerritories();
-        return Inertia::render('Dashboard', compact('teritories'));
+        $territories = $api->getTerritories();
+        return Inertia::render('Dashboard', compact('territories'));
     }
 }

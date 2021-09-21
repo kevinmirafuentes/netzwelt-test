@@ -30,12 +30,16 @@ class ApiService
         $output = [];
         $data = $response->object()->data;
 
+        // get the tree
         foreach ($data as $item) {
             if ($item->parent == 0) {
                 $output[$item->id] = $item;
                 $output[$item->id]->children = $this->getChildren($data, $item);
             }
         }
+
+        // normalize
+        $output = $this->normalize($output);
 
         return $output;
     }
@@ -50,5 +54,15 @@ class ApiService
             }
         }
         return $children;
+    }
+
+    private function normalize($data)
+    {
+        $output = [];
+        foreach ($data as $val) {
+            $val->children = $this->normalize($val->children);
+            $output[] = $val;
+        }
+        return $output;
     }
 }
